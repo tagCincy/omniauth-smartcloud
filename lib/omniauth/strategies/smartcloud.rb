@@ -53,7 +53,6 @@ module OmniAuth
 
       def raw_info
         @raw_info ||= access_token.get('/lotuslive-shindig-server/social/rest/people/@me/@self?mode=json').parsed['entry']
-        raise @raw_info.to_yaml
       end
     end
   end
