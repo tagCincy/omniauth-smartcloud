@@ -19,8 +19,16 @@ module OmniAuth
           :header_format => 'Bearer %s'
       }
 
+      def local_callback_url
+        uri = URI.parse(request.url.gsub(/\?.*$/,''))
+        uri.path = ''
+        uri.port = '' if uri.port == 80
+        uri.to_s
+        uri + callback_path
+      end
+
       def request_phase
-        redirect client.auth_code.authorize_url({:callback_uri => callback_url}.merge(authorize_params))
+        redirect client.auth_code.authorize_url({:callback_uri => local_callback_url}.merge(authorize_params))
       end
 
       def authorize_params
