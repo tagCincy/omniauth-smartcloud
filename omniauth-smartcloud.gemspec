@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'omniauth', '~> 1.1.4'
   gem.add_dependency 'omniauth-oauth2', '~> 1.1.1'
+  gem.add_dependency 'oauth2', '~> 0.9.2'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'rack-test'
   gem.add_development_dependency 'simplecov'
