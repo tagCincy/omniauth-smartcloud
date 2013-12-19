@@ -42,7 +42,7 @@ module OmniAuth
 
       def build_access_token
         verifier = request.params['code']
-        client.auth_code.get_token(verifier, {:callback_uri => callback_url}.merge(token_params.to_hash(:symbolize_keys => true)))
+        client.auth_code.get_token(verifier, {:callback_uri => local_callback_url}.merge(token_params.to_hash(:symbolize_keys => true)))
       end
 
       uid { raw_info['objectId'].to_s }
